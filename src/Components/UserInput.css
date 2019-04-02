@@ -1,4 +1,6 @@
 .UserInput{
     border-color:grey;
+    border-width: thin;
+    outline: none;
 
 }

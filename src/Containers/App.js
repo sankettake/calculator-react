@@ -12,12 +12,41 @@ class App extends Component {
     previous_result:null,
     previous_operator:null,
     previous_action: null
+  };
+
+  calculation = (value1,value2,operator) => {
+    let final_result = 0;
+    switch (operator){
+      case "+":
+        final_result = parseInt(value1) + parseInt(value2)
+        break;
+      case "-":
+        final_result = parseInt(value1) - parseInt(value2)
+        break;
+      case "x":
+        final_result = parseInt(value1) * parseInt(value2)
+        break;
+      case "/":
+        final_result = parseInt(value1) / parseInt(value2)
+        break;
+        }
+        final_result = Math.round(final_result * 100) / 100
+      return final_result;
+
   }
 
+
   recordAction = (type,value) =>{
-    //console.log(type,value);
-    // console.log(this.state);
-    if (!this.state.previous_action){
+    if(value==="="){
+      if ((this.state.previous_result)&&(this.state.previous_operator)){
+        this.setState({
+          previous_action:null,
+          previous_result:null,
+          result : this.calculation(this.state.previous_result,this.state.result,this.state.previous_operator)
+        })
+      }
+    }
+    else if (!this.state.previous_action){
         if(type==="number"){
           this.setState({
             result:value,
@@ -27,7 +56,8 @@ class App extends Component {
           }
         else{
           this.setState({
-            previous_action:{type:type,value:value}
+            previous_action:{type:type,value:value},
+            previous_operator:value
           })
         }
    }
@@ -67,28 +97,10 @@ class App extends Component {
      }
      
     else if ((type==="operator")&&(this.state.previous_action.type==="number")){
-      console.log("inside Operator Number");
+  
       if (this.state.previous_result){
-        console.log("inside Previous Result");
         let final_result = 0;
-        console.log("Inside operrator");
-        switch (this.state.previous_operator){
-          case "+":
-          console.log("Inside +");
-          console.log(this.state.previous_result + this.state.result);
-            final_result = parseInt(this.state.previous_result) + parseInt(this.state.result)
-            break;
-          case "-":
-            final_result = parseInt(this.state.previous_result) - parseInt(this.state.result)
-            break;
-          case "x":
-            final_result = parseInt(this.state.previous_result) * parseInt(this.state.result)
-            break;
-          case "/":
-            final_result = parseInt(this.state.previous_result) / parseInt(this.state.result)
-            break;
-        }
-        console.log(final_result);
+        final_result = this.calculation(this.state.previous_result,this.state.result,this.state.previous_operator)
         this.setState({
           result:final_result,
           previous_operator:value,
@@ -148,7 +160,8 @@ class App extends Component {
           </Row>
           <Row>
           <UserInput type="large-digit" clicked={() =>this.recordAction( "number",0)} value={0}></UserInput>
-          <UserInput type="large-operator" className="Operator"  clicked={() =>this.recordAction( "operator","+")} value={"+"}></UserInput>
+          <UserInput type="small-operator" className="Operator"  clicked={() =>this.recordAction( "operator","=")} value={"="}></UserInput>
+          <UserInput type="small-operator" className="Operator"  clicked={() =>this.recordAction( "operator","+")} value={"+"}></UserInput>
           </Row>
           </Container>
         </div>

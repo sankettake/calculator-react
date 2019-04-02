@@ -4,6 +4,7 @@ import {BrowserRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import UserInput from './../Components/UserInput'
 import UserOutput from './../Components/UserOutput'
+import {Container, Row} from 'react-bootstrap'
 
 class App extends Component {
   state = {
@@ -123,20 +124,33 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
+          <Container>
+          <Row>
           <UserOutput result ={this.state.result}></UserOutput>
-          <UserInput clicked={() =>this.recordAction( "number",1)} value={1}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "number",2)} value={2}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "number",3)} value={3}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "number",4)} value={4}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "number",5)} value={5}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "number",6)} value={6}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "number",7)} value={7}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "number",8)} value={8}></UserInput>
+          </Row>
+          <Row>
           <UserInput clicked={() =>this.recordAction( "number",9)} value={9}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "operator","+")} value={"+"}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "operator","-")}value={"-"}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "operator","x")} value={"x"}></UserInput>
+          <UserInput clicked={() =>this.recordAction( "number",8)} value={8}></UserInput>
+          <UserInput clicked={() =>this.recordAction( "number",7)} value={7}></UserInput>
           <UserInput clicked={() =>this.recordAction( "operator","/")}value={"/"}></UserInput>
+          </Row>
+          <Row>
+          <UserInput clicked={() =>this.recordAction( "number",6)} value={6}></UserInput>
+          <UserInput clicked={() =>this.recordAction( "number",5)} value={5}></UserInput>
+          <UserInput clicked={() =>this.recordAction( "number",4)} value={4}></UserInput>
+          <UserInput clicked={() =>this.recordAction( "operator","x")} value={"x"}></UserInput>
+          </Row>
+          <Row>
+          <UserInput clicked={() =>this.recordAction( "number",3)} value={3}></UserInput>
+          <UserInput clicked={() =>this.recordAction( "number",2)} value={2}></UserInput>
+          <UserInput clicked={() =>this.recordAction( "number",1)} value={1}></UserInput>
+          <UserInput clicked={() =>this.recordAction( "operator","-")}value={"-"}></UserInput>
+          </Row>
+          <Row>
+          <UserInput clicked={() =>this.recordAction( "number",0)} value={0}></UserInput>
+          <UserInput clicked={() =>this.recordAction( "operator","+")} value={"+"}></UserInput>
+          </Row>
+          </Container>
         </div>
       </BrowserRouter>
     );

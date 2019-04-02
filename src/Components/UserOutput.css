@@ -1,7 +1,8 @@
 .UserOutput{
-    width: 24%;
+    width: 240px;
+    height:80px;
     text-align: right;
     background: #304C6D;
     color: white;
-    font: 15px
+    font-size: 40px;
 }

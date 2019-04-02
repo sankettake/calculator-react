@@ -129,26 +129,26 @@ class App extends Component {
           <UserOutput result ={this.state.result}></UserOutput>
           </Row>
           <Row>
-          <UserInput clicked={() =>this.recordAction( "number",9)} value={9}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "number",8)} value={8}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "number",7)} value={7}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "operator","/")}value={"/"}></UserInput>
+          <UserInput type="small-digit" clicked={() =>this.recordAction( "number",9)} value={9}></UserInput>
+          <UserInput type="small-digit" clicked={() =>this.recordAction( "number",8)} value={8}></UserInput>
+          <UserInput type="small-digit" clicked={() =>this.recordAction( "number",7)} value={7}></UserInput>
+          <UserInput type="small-operator" className="Operator" clicked={() =>this.recordAction( "operator","/")}value={"/"}></UserInput>
           </Row>
           <Row>
-          <UserInput clicked={() =>this.recordAction( "number",6)} value={6}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "number",5)} value={5}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "number",4)} value={4}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "operator","x")} value={"x"}></UserInput>
+          <UserInput type="small-digit" clicked={() =>this.recordAction( "number",6)} value={6}></UserInput>
+          <UserInput type="small-digit" clicked={() =>this.recordAction( "number",5)} value={5}></UserInput>
+          <UserInput type="small-digit"clicked={() =>this.recordAction( "number",4)} value={4}></UserInput>
+          <UserInput type="small-operator" className="Operator"  clicked={() =>this.recordAction( "operator","x")} value={"x"}></UserInput>
           </Row>
           <Row>
-          <UserInput clicked={() =>this.recordAction( "number",3)} value={3}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "number",2)} value={2}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "number",1)} value={1}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "operator","-")}value={"-"}></UserInput>
+          <UserInput type="small-digit" clicked={() =>this.recordAction( "number",3)} value={3}></UserInput>
+          <UserInput type="small-digit" clicked={() =>this.recordAction( "number",2)} value={2}></UserInput>
+          <UserInput type="small-digit" clicked={() =>this.recordAction( "number",1)} value={1}></UserInput>
+          <UserInput type="small-operator" clicked={() =>this.recordAction( "operator","-")}value={"-"}></UserInput>
           </Row>
           <Row>
-          <UserInput clicked={() =>this.recordAction( "number",0)} value={0}></UserInput>
-          <UserInput clicked={() =>this.recordAction( "operator","+")} value={"+"}></UserInput>
+          <UserInput type="large-digit" clicked={() =>this.recordAction( "number",0)} value={0}></UserInput>
+          <UserInput type="large-operator" className="Operator"  clicked={() =>this.recordAction( "operator","+")} value={"+"}></UserInput>
           </Row>
           </Container>
         </div>

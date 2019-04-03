@@ -21,14 +21,8 @@ const user_input = (props) => {
         style = {
             width:"60px",
             height:"60px",
-            background: "#F79231"
-        }
-    }
-    else if (props.type==="large-operator"){
-        style = {
-            width:"120px",
-            height:"60px",
-            background: "#F79231"
+            background: "#F79231",
+            color:"white"
         }
     }
     return(

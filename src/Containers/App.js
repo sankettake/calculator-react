@@ -29,6 +29,9 @@ class App extends Component {
       case "/":
         final_result = parseInt(value1) / parseInt(value2)
         break;
+      default:
+        final_result = parseInt(value2)
+        break;
         }
         final_result = Math.round(final_result * 100) / 100
       return final_result;
@@ -42,6 +45,7 @@ class App extends Component {
         this.setState({
           previous_action:null,
           previous_result:null,
+          previous_operator:null,
           result : this.calculation(this.state.previous_result,this.state.result,this.state.previous_operator)
         })
       }
@@ -87,7 +91,6 @@ class App extends Component {
       console.log("inside Operator case");
       console.log(this.state);
       this.setState({
-        previous_result:this.state.result,
         previous_operator:value,
         previous_action:{
           type:type,
